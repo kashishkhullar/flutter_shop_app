@@ -21,10 +21,9 @@ class ProductsGrid extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         return Container(
-          child: ProductItem(
-            id: loadedProducts[index].id,
-            title: loadedProducts[index].title,
-            imageUrl: loadedProducts[index].imageUrl,
+          child: ChangeNotifierProvider(
+            create: (context) => loadedProducts[index],
+            child: ProductItem(),
           ),
         );
       },
